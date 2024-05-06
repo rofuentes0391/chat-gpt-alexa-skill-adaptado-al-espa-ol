@@ -31,11 +31,11 @@
       "distributionCountries": [],
       "isAvailableWorldwide": true,
       "locales": {
-        "pt-BR": {
+        "es-ES": {
           "name": "ChatGPT"
         }
       },
-      "testingInstructions": "Sample Testing Instructions."
+      "testingInstructions": "Instrucciones de prueba de ejemplo."
     }
   }
 }
