@@ -14,7 +14,7 @@ from openai import OpenAI
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-openai_api_key = "SUSTITUYE-POR-TU-API-KEY-DE-OPENAI"
+openai_api_key = "sk-proj-hXFNQ6HdDxfZEN0FLx5hT3BlbkFJSWGwoeVWgNpJjDMyi2aa"
 
 client = OpenAI(api_key=openai_api_key)
 
