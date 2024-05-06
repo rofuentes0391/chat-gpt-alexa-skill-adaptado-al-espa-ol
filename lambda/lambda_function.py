@@ -14,13 +14,13 @@ from openai import OpenAI
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-openai_api_key = "SUBSTITUA-POR-SUA-API-KEY-DA-OPENAI"
+openai_api_key = "SUSTITUYE-POR-TU-API-KEY-DE-OPENAI"
 
 client = OpenAI(api_key=openai_api_key)
 
 MODEL = "gpt-4-1106-preview"
 
-messages = [{"role": "system", "content": "Você é uma assistente muito útil. Por favor, responda de forma clara e concisa em Português do Brasil."}]
+messages = [{"role": "system", "content": "Por favor, responde de forma clara y concisa en español."}]
 
 class LaunchRequestHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -30,7 +30,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Bem vindo ao Chat 'Gepetê Quatro' da 'Open ei ai'! Qual a sua pergunta?"
+        speak_output = "Bienvenido al Chat 'GPT Cuatro' de 'Open AI'! ¿Cuál es tu pregunta?"
 
         return (
             handler_input.response_builder
@@ -53,7 +53,7 @@ class GptQueryIntentHandler(AbstractRequestHandler):
         return (
                 handler_input.response_builder
                     .speak(response)
-                    .ask("Você pode fazer uma nova pergunta ou falar: sair.")
+                    .ask("Puedes hacer otra pregunta o decir: salir.")
                     .response
             )
 
@@ -68,7 +68,7 @@ def generate_gpt_response(query):
         messages.append({"role": "assistant", "content": reply})
         return reply
     except Exception as e:
-        return f"Erro ao gerar resposta: {str(e)}"
+        return f"Error al generar respuesta: {str(e)}"
 
 
 class HelpIntentHandler(AbstractRequestHandler):
@@ -78,7 +78,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Como posso te ajudar?"
+        speak_output = "¿Cómo puedo ayudarte?"
 
         return (
             handler_input.response_builder
@@ -96,7 +96,7 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Até logo!"
+        speak_output = "¡Hasta luego!"
 
         return (
             handler_input.response_builder
@@ -127,7 +127,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
 
-        speak_output = "Desculpe, não consegui processar sua solicitação."
+        speak_output = "Lo siento, no pude procesar tu solicitud."
 
         return (
             handler_input.response_builder
